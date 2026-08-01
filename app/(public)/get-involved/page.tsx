@@ -28,7 +28,7 @@ export default function GetInvolvedPage() {
         description="Whether you give your time, your platform, or your creativity — your contribution helps girls discover their strength and reach their full potential."
       />
 
-      <section className="section-padding">
+      <section className="section-padding bg-cream">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="volunteer" className="w-full">
             <TabsList className="mb-8 w-full flex-wrap">
@@ -45,15 +45,15 @@ export default function GetInvolvedPage() {
 
             <TabsContent value="volunteer">
               <Reveal>
-                <Card>
+                <Card className="border-rose-pale bg-white">
                   <CardContent className="p-8">
                     <div className="mb-6 flex items-start gap-4">
                       <IconBadge icon={Heart} tone="rose" />
                       <div>
-                        <h2 className="font-display text-2xl font-semibold text-ink-900">
+                        <h2 className="font-display text-2xl font-semibold text-text">
                           Volunteer with us
                         </h2>
-                        <p className="mt-2 text-ink-600">
+                        <p className="mt-2 text-muted">
                           Mentors, workshop facilitators, event helpers, and
                           behind-the-scenes supporters — we welcome hearts ready
                           to serve.
@@ -68,15 +68,15 @@ export default function GetInvolvedPage() {
 
             <TabsContent value="partner">
               <Reveal>
-                <Card>
+                <Card className="border-rose-pale bg-white">
                   <CardContent className="p-8">
                     <div className="mb-6 flex items-start gap-4">
                       <IconBadge icon={Handshake} tone="gold" />
                       <div>
-                        <h2 className="font-display text-2xl font-semibold text-ink-900">
+                        <h2 className="font-display text-2xl font-semibold text-text">
                           Partner with us
                         </h2>
-                        <p className="mt-2 text-ink-600">
+                        <p className="mt-2 text-muted">
                           Schools, organisations, and businesses — let us explore
                           how we can amplify impact together.
                         </p>
@@ -90,32 +90,33 @@ export default function GetInvolvedPage() {
 
             <TabsContent value="fundraise">
               <Reveal>
-                <Card>
+                <Card className="border-rose-pale bg-white">
                   <CardContent className="p-8">
                     <div className="mb-6 flex items-start gap-4">
                       <IconBadge icon={Megaphone} tone="rose" />
                       <div>
-                        <h2 className="font-display text-2xl font-semibold text-ink-900">
+                        <h2 className="font-display text-2xl font-semibold text-text">
                           Fundraise for girls
                         </h2>
-                        <p className="mt-2 text-ink-600">
+                        <p className="mt-2 text-muted">
                           Host a birthday fundraiser, run a community event, or
                           rally your network — every gift helps a girl believe she
                           can.
                         </p>
                       </div>
                     </div>
-                    <div className="mb-8 rounded-2xl border border-gold-200 bg-gold-50 p-5 text-sm text-ink-700">
-                      <p className="font-medium">Ready to start giving?</p>
-                      <p className="mt-2">
-                        You can donate directly or tell us about your fundraising
-                        idea and we will support you with materials and guidance.
+                    <div className="mb-8 rounded-2xl border border-gold-light/50 bg-gold-light/20 p-5 text-sm text-text">
+                      <p className="font-semibold">Ready to support the mission?</p>
+                      <p className="mt-2 text-muted">
+                        You can reach out via email or phone for local (GHS) and
+                        international (USD) donation guidance. We will support your
+                        fundraising effort with materials and guidance.
                       </p>
                       <Button asChild className="mt-4">
-                        <Link href="/donate">Donate now</Link>
+                        <Link href="/donate">Ways to Give →</Link>
                       </Button>
                     </div>
-                    <h3 className="mb-4 font-medium text-ink-900">
+                    <h3 className="mb-4 font-semibold text-text">
                       Tell us about your fundraiser
                     </h3>
                     <ContactForm defaultSubject="Fundraising inquiry" />

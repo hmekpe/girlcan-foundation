@@ -26,6 +26,7 @@ export default async function AboutPage() {
     "mission_title",
     "mission_text",
     "vision_text",
+    "image_about",
   ]);
 
   const team = await prisma.teamMember.findMany({ orderBy: { order: "asc" } });
@@ -44,7 +45,7 @@ export default async function AboutPage() {
             <Reveal>
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src={PLACEHOLDER.community}
+                  src={settings.image_about || PLACEHOLDER.community}
                   alt="Girls gathered in a supportive community setting"
                   fill
                   className="object-cover"
@@ -54,7 +55,7 @@ export default async function AboutPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="eyebrow mb-3">Who we are</p>
-              <h2 className="text-ink-900">Creating space for girls to grow</h2>
+              <h2 className="text-text">Creating space for girls to grow</h2>
               <p className="mt-4 prose-brand">
                 {settings.mission_body ||
                   "We focus on creating safe spaces where girls are encouraged to express themselves, grow in knowledge, develop life skills, and embrace their unique potential."}
@@ -69,18 +70,18 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-cream-100">
+      <section className="section-padding bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             <Reveal>
-              <Card className="h-full border-none bg-cream-50">
+              <Card className="h-full border-none bg-cream">
                 <CardContent className="p-8">
                   <IconBadge icon={Target} tone="rose" className="mb-4" />
                   <p className="eyebrow mb-2">Our mission</p>
-                  <h3 className="text-2xl text-ink-900">
+                  <h3 className="text-2xl text-text">
                     {settings.mission_title || "Inspire. Educate. Mentor. Support."}
                   </h3>
-                  <p className="mt-4 text-ink-600">
+                  <p className="mt-4 text-muted">
                     {settings.mission_text ||
                       "To inspire, educate, mentor, and support girls through programs and opportunities that promote leadership, personal development, education, confidence-building, and social impact."}
                   </p>
@@ -88,12 +89,12 @@ export default async function AboutPage() {
               </Card>
             </Reveal>
             <Reveal delay={0.1}>
-              <Card className="h-full border-none bg-cream-50">
+              <Card className="h-full border-none bg-cream">
                 <CardContent className="p-8">
                   <IconBadge icon={Eye} tone="gold" className="mb-4" />
                   <p className="eyebrow mb-2">Our vision</p>
-                  <h3 className="text-2xl text-ink-900">A generation of leaders</h3>
-                  <p className="mt-4 text-ink-600">
+                  <h3 className="text-2xl text-text">A generation of leaders</h3>
+                  <p className="mt-4 text-muted">
                     {settings.vision_text ||
                       "To raise a generation of empowered, resilient, and purpose-driven girls equipped to break barriers and become leaders, changemakers, and role models."}
                   </p>
@@ -108,8 +109,8 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-3">Our values</p>
-            <h2 className="text-ink-900">What guides everything we do</h2>
-            <p className="mt-4 text-ink-600">
+            <h2 className="text-text">What guides everything we do</h2>
+            <p className="mt-4 text-muted">
               These values shape our programs, partnerships, and the culture we
               build with every girl we serve.
             </p>
@@ -117,8 +118,8 @@ export default async function AboutPage() {
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             {VALUES.map((value, i) => (
               <Reveal key={value} delay={i * 0.05}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-cream-300 bg-cream-50 px-5 py-2.5 text-sm font-medium text-ink-700">
-                  <Heart className="h-3.5 w-3.5 text-rose-500" aria-hidden />
+                <span className="inline-flex items-center gap-2 rounded-full border border-rose-pale bg-cream px-5 py-2.5 text-sm font-medium text-text">
+                  <Heart className="h-3.5 w-3.5 text-rose" aria-hidden />
                   {value}
                 </span>
               </Reveal>
@@ -127,12 +128,12 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-rose-50">
+      <section className="section-padding bg-rose-pale">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-3">Our team</p>
-            <h2 className="text-ink-900">The people behind the mission</h2>
-            <p className="mt-4 text-ink-600">
+            <h2 className="text-text">The people behind the mission</h2>
+            <p className="mt-4 text-muted">
               A dedicated team committed to creating pathways of education,
               mentorship, and advocacy for girls everywhere.
             </p>
@@ -151,13 +152,13 @@ export default async function AboutPage() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="font-display text-lg font-semibold text-ink-900">
+                    <h3 className="font-display text-lg font-semibold text-text">
                       {member.name}
                     </h3>
-                    <p className="mt-1 text-sm font-medium text-rose-600">
+                    <p className="mt-1 text-sm font-medium text-rose">
                       {member.role}
                     </p>
-                    <p className="mt-3 text-sm text-ink-600">{member.bio}</p>
+                    <p className="mt-3 text-sm text-muted">{member.bio}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -169,8 +170,8 @@ export default async function AboutPage() {
       <section className="section-padding">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
-            <h2 className="text-ink-900">Ready to be part of her story?</h2>
-            <p className="mt-4 text-ink-600">
+            <h2 className="text-text">Ready to be part of her story?</h2>
+            <p className="mt-4 text-muted">
               Whether you volunteer, partner, or give — there is a place for you
               in this movement.
             </p>

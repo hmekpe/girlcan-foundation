@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EmptyState } from "@/components/admin/empty-state";
+import { MediaPicker } from "@/components/admin/media-picker";
 import {
   Table,
   TableBody,
@@ -38,8 +39,8 @@ export function TeamAdminClient({ members }: { members: TeamMember[] }) {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-semibold text-ink-900">Team</h1>
-        <p className="text-sm text-ink-500">Manage team members displayed on the site.</p>
+        <h1 className="font-display text-2xl font-semibold text-text">Team</h1>
+        <p className="text-sm text-muted">Manage team members displayed on the site.</p>
       </div>
 
       <Card>
@@ -74,8 +75,7 @@ export function TeamAdminClient({ members }: { members: TeamMember[] }) {
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="space-y-2">
-                <Label htmlFor="photo">Photo URL</Label>
-                <Input id="photo" name="photo" type="url" defaultValue={editing?.photo || ""} key={editing?.id || "new-photo"} />
+                <MediaPicker name="photo" label="Photo URL" value={editing?.photo || ""} key={editing?.id || "new-photo"} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="order">Order</Label>
@@ -105,7 +105,7 @@ export function TeamAdminClient({ members }: { members: TeamMember[] }) {
       {members.length === 0 ? (
         <EmptyState icon={UsersRound} title="No team members" description="Add your first team member above." />
       ) : (
-        <div className="rounded-2xl border border-cream-300 bg-cream-50">
+        <div className="rounded-2xl border border-rose/20 bg-plum/5">
           <Table>
             <TableHeader>
               <TableRow>
@@ -118,17 +118,17 @@ export function TeamAdminClient({ members }: { members: TeamMember[] }) {
             <TableBody>
               {members.map((m) => (
                 <TableRow key={m.id}>
-                  <TableCell className="font-medium">{m.name}</TableCell>
-                  <TableCell className="text-ink-500">{m.role}</TableCell>
-                  <TableCell>{m.order}</TableCell>
+                  <TableCell className="font-medium text-text">{m.name}</TableCell>
+                  <TableCell className="text-muted">{m.role}</TableCell>
+                  <TableCell className="text-muted">{m.order}</TableCell>
                   <TableCell className="space-x-2 text-right">
-                    <button
-                      type="button"
-                      onClick={() => setEditing(m)}
-                      className="text-sm text-rose-500 hover:text-rose-600"
-                    >
-                      Edit
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => setEditing(m)}
+                        className="text-sm text-rose hover:text-rose-dark"
+                      >
+                        Edit
+                      </button>
                     <form action={deleteTeamMember.bind(null, m.id)} className="inline">
                       <button type="submit" className="text-sm text-state-error hover:underline">
                         Delete

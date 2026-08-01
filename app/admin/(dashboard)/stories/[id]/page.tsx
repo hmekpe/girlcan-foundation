@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MediaPicker } from "@/components/admin/media-picker";
 
 export default async function EditStoryPage({
   params,
@@ -60,8 +61,7 @@ export default async function EditStoryPage({
                 <Input id="category" name="category" defaultValue={story.category} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="coverImage">Cover image URL</Label>
-                <Input id="coverImage" name="coverImage" type="url" defaultValue={story.coverImage || ""} />
+                <MediaPicker name="coverImage" label="Cover image URL" value={story.coverImage || ""} />
               </div>
             </div>
             <div className="flex gap-4">

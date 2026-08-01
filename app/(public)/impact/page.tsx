@@ -25,6 +25,7 @@ export default async function ImpactPage() {
     "stats_workshops",
     "stats_mentors",
     "stats_communities",
+    "image_community",
   ]);
 
   const testimonials = await prisma.testimonial.findMany({
@@ -48,17 +49,17 @@ export default async function ImpactPage() {
         description="Every statistic represents a girl who found her voice, a mentor who showed up, and a community that chose to believe in her."
       />
 
-      <section className="section-padding bg-rose-50">
+      <section className="section-padding bg-rose-pale">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 0.08}>
-                <Card className="border-none bg-cream-50 text-center">
+                <Card className="border-none bg-cream text-center">
                   <CardContent className="p-8">
-                    <p className="font-display text-4xl font-bold text-rose-600">
+                    <p className="font-display text-4xl font-bold text-rose">
                       <CountUp value={stat.value} suffix={stat.suffix} />
                     </p>
-                    <p className="mt-2 text-sm font-medium text-ink-600">{stat.label}</p>
+                    <p className="mt-2 text-sm font-medium text-muted">{stat.label}</p>
                   </CardContent>
                 </Card>
               </Reveal>
@@ -71,12 +72,12 @@ export default async function ImpactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-3">Testimonials</p>
-            <h2 className="text-ink-900">In their own words</h2>
+            <h2 className="text-text">In their own words</h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t, i) => (
               <Reveal key={t.id} delay={i * 0.06}>
-                <Card className="h-full border-none bg-cream-100">
+                <Card className="h-full border-none bg-rose-pale">
                   <CardContent className="p-6">
                     {t.photo && (
                       <div className="relative mb-4 h-12 w-12 overflow-hidden rounded-full">
@@ -89,10 +90,10 @@ export default async function ImpactPage() {
                         />
                       </div>
                     )}
-                    <p className="text-sm italic text-ink-700">&ldquo;{t.quote}&rdquo;</p>
-                    <p className="mt-4 text-sm font-medium text-rose-600">{t.name}</p>
+                    <p className="text-sm italic text-text">&ldquo;{t.quote}&rdquo;</p>
+                    <p className="mt-4 text-sm font-medium text-rose">{t.name}</p>
                     {t.program && (
-                      <p className="text-xs text-ink-500">{t.program.title}</p>
+                      <p className="text-xs text-muted">{t.program.title}</p>
                     )}
                   </CardContent>
                 </Card>
@@ -117,20 +118,20 @@ export default async function ImpactPage() {
             <Reveal delay={0.1}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src={PLACEHOLDER.community}
+                  src={settings.image_community || PLACEHOLDER.community}
                   alt="Community gathering celebrating girls' achievements"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <Card className="mt-6 border-gold-200 bg-gold-50">
+              <Card className="mt-6 border-gold-light/50 bg-gold-light/20">
                 <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <h3 className="font-display text-lg font-semibold text-ink-900">
+                    <h3 className="font-display text-lg font-semibold text-text">
                       Download our impact report
                     </h3>
-                    <p className="mt-1 text-sm text-ink-600">
+                    <p className="mt-1 text-sm text-muted">
                       Full annual report coming soon. Contact us for interim summaries.
                     </p>
                   </div>

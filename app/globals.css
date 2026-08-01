@@ -152,6 +152,41 @@
   .logo-teardrop {
     border-radius: 50% 50% 50% 0;
   }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-deep/80 backdrop-blur-xl border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-rose to-gold;
+  }
+
+  .card-premium {
+    @apply rounded-2xl border border-rose-pale/30 bg-white shadow-sm transition-all duration-300 hover:shadow-brand hover:-translate-y-1;
+  }
+
+  .card-premium-dark {
+    @apply rounded-2xl border border-white/10 bg-plum/50 backdrop-blur-md shadow-sm transition-all duration-300 hover:shadow-brand hover:-translate-y-1;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(232, 69, 90, 0.08), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .section-divider {
+    @apply relative;
+  }
+
+  .section-divider::before {
+    content: '';
+    @apply absolute left-1/2 top-0 h-px w-32 -translate-x-1/2 bg-gradient-to-r from-transparent via-rose/30 to-transparent;
+  }
 }
 
 @keyframes marquee {
@@ -161,6 +196,11 @@
 
 @keyframes underline-in {
   to { transform: scaleX(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

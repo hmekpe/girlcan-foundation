@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { PLACEHOLDER } from "@/lib/constants";
 
 const TAGS = ["Mentorship", "Leadership", "Advocacy", "Community"] as const;
 
@@ -16,21 +17,21 @@ const fadeUp = {
   }),
 };
 
-export function Hero() {
+export function Hero({ imageHero }: { imageHero?: string }) {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
+    <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-pale/20 via-cream to-cream pt-28 pb-16 lg:pt-36 lg:pb-24">
       <div
-        className="pointer-events-none absolute -right-20 top-10 h-[420px] w-[420px] rounded-full bg-rose/[0.08] blur-3xl"
+        className="pointer-events-none absolute -right-20 top-10 h-[600px] w-[600px] rounded-full bg-rose/15 blur-3xl animate-pulse"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-gold/[0.07] blur-3xl"
+        className="pointer-events-none absolute -left-24 bottom-0 h-[500px] w-[500px] rounded-full bg-gold/15 blur-3xl animate-pulse delay-700"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-40 top-1/3 h-[500px] w-[500px] rounded-full border border-rose/[0.06] bg-rose/[0.03]"
+        className="pointer-events-none absolute -right-40 top-1/3 h-[600px] w-[600px] rounded-full border border-rose/10 bg-rose/5"
         aria-hidden
       />
 
@@ -108,8 +109,14 @@ export function Hero() {
               className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-gold-light/40"
               aria-hidden
             />
+            <div className="absolute inset-0 -m-1 rounded-3xl bg-gradient-to-r from-rose via-gold to-rose opacity-50 blur shimmer" aria-hidden />
 
-            <div className="relative overflow-hidden rounded-2xl bg-plum p-6 sm:p-8">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-plum via-plum-deep to-deep p-6 sm:p-8">
+              {/* Background Image Layer */}
+              <div 
+                className="absolute inset-0 opacity-20 bg-cover bg-center transition-all duration-500" 
+                style={{ backgroundImage: `url(${imageHero || PLACEHOLDER.hero})` }}
+              />
               <blockquote className="font-display text-lg font-bold italic leading-snug text-white sm:text-xl">
                 &ldquo;Every girl has the power to dream big, lead boldly, and create
                 meaningful change.&rdquo;
@@ -130,26 +137,36 @@ export function Hero() {
                 ))}
               </div>
 
-              <div className="mt-6 grid grid-cols-3 gap-4 border-t border-white/20 pt-4">
-                <div className="text-center">
+              <motion.div 
+                className="mt-6 grid grid-cols-3 gap-4 border-t border-white/20 pt-4"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: { staggerChildren: 0.1, delayChildren: 0.8 }
+                  }
+                }}
+              >
+                <motion.div variants={fadeUp} className="text-center">
                   <div className="font-display text-2xl font-bold text-gold-light">
                     1,200+
                   </div>
                   <div className="text-xs text-white/60">Girls Reached</div>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div variants={fadeUp} className="text-center">
                   <div className="font-display text-2xl font-bold text-gold-light">
                     48+
                   </div>
                   <div className="text-xs text-white/60">Workshops</div>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div variants={fadeUp} className="text-center">
                   <div className="font-display text-2xl font-bold text-gold-light">
                     85+
                   </div>
                   <div className="text-xs text-white/60">Mentors</div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </motion.div>

@@ -40,11 +40,11 @@ export default async function EventsPage() {
       <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10">
-            <h2 className="text-2xl font-semibold text-ink-900">Upcoming events</h2>
+            <h2 className="text-2xl font-semibold text-text">Upcoming events</h2>
           </Reveal>
 
           {upcoming.length === 0 ? (
-            <p className="text-ink-600">
+            <p className="text-muted">
               No upcoming events at the moment. Check back soon or subscribe to our
               newsletter for updates.
             </p>
@@ -67,21 +67,21 @@ export default async function EventsPage() {
                         )}
                       </div>
                       <CardContent className="p-6">
-                        <h3 className="font-display text-xl font-semibold text-ink-900 group-hover:text-rose-600">
+                        <h3 className="font-display text-xl font-semibold text-text group-hover:text-rose">
                           {event.title}
                         </h3>
-                        <div className="mt-4 space-y-2 text-sm text-ink-600">
+                        <div className="mt-4 space-y-2 text-sm text-muted">
                           <p className="flex items-center gap-2">
-                            <Calendar className="h-4 w-4 text-rose-500" aria-hidden />
+                            <Calendar className="h-4 w-4 text-rose" aria-hidden />
                             {format(event.startAt, "EEEE, MMMM d, yyyy · h:mm a")}
                           </p>
                           <p className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-rose-500" aria-hidden />
+                            <MapPin className="h-4 w-4 text-rose" aria-hidden />
                             {event.location}
                           </p>
                           {event.capacity && (
                             <p className="flex items-center gap-2">
-                              <Users className="h-4 w-4 text-rose-500" aria-hidden />
+                              <Users className="h-4 w-4 text-rose" aria-hidden />
                               {event._count.registrations} / {event.capacity} registered
                             </p>
                           )}
@@ -97,18 +97,18 @@ export default async function EventsPage() {
           {past.length > 0 && (
             <div className="mt-20">
               <Reveal className="mb-8">
-                <h2 className="text-2xl font-semibold text-ink-900">Past events</h2>
+                <h2 className="text-2xl font-semibold text-text">Past events</h2>
               </Reveal>
               <div className="space-y-4">
                 {past.map((event) => (
                   <Reveal key={event.id}>
                     <Link
                       href={`/events/${event.slug}`}
-                      className="flex flex-col gap-2 rounded-2xl border border-cream-300 bg-cream-50 p-5 transition-colors hover:border-rose-300 sm:flex-row sm:items-center sm:justify-between"
+                      className="flex flex-col gap-2 rounded-2xl border border-rose-pale bg-cream p-5 transition-colors hover:border-rose sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div>
-                        <h3 className="font-medium text-ink-900">{event.title}</h3>
-                        <p className="text-sm text-ink-500">
+                        <h3 className="font-medium text-text">{event.title}</h3>
+                        <p className="text-sm text-muted">
                           {format(event.startAt, "MMMM d, yyyy")} · {event.location}
                         </p>
                       </div>

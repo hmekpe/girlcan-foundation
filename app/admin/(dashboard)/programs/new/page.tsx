@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MediaPicker } from "@/components/admin/media-picker";
 
 export default function NewProgramPage() {
   return (
@@ -47,8 +48,7 @@ export default function NewProgramPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="coverImage">Cover image URL</Label>
-              <Input id="coverImage" name="coverImage" type="url" />
+              <MediaPicker name="coverImage" label="Cover image URL" />
             </div>
             <label className="flex items-center gap-2 text-sm">
               <input type="checkbox" name="published" defaultChecked className="rounded" />

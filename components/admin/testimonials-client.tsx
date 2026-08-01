@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/admin/empty-state";
+import { MediaPicker } from "@/components/admin/media-picker";
 import {
   Table,
   TableBody,
@@ -46,8 +47,8 @@ export function TestimonialsClient({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-semibold text-ink-900">Testimonials</h1>
-        <p className="text-sm text-ink-500">Manage quotes from beneficiaries and partners.</p>
+        <h1 className="font-display text-2xl font-semibold text-text">Testimonials</h1>
+        <p className="text-sm text-muted">Manage quotes from beneficiaries and partners.</p>
       </div>
 
       <Card>
@@ -76,8 +77,7 @@ export function TestimonialsClient({
                 <Input id="name" name="name" defaultValue={editing?.name} required key={editing?.id || "n"} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="photo">Photo URL</Label>
-                <Input id="photo" name="photo" type="url" defaultValue={editing?.photo || ""} key={editing?.id || "p"} />
+                <MediaPicker name="photo" label="Photo URL" value={editing?.photo || ""} key={editing?.id || "new-photo"} />
               </div>
             </div>
             <div className="space-y-2">
@@ -112,7 +112,7 @@ export function TestimonialsClient({
       {testimonials.length === 0 ? (
         <EmptyState icon={Heart} title="No testimonials" description="Add your first testimonial above." />
       ) : (
-        <div className="rounded-2xl border border-cream-300 bg-cream-50">
+        <div className="rounded-2xl border border-rose/20 bg-plum/5">
           <Table>
             <TableHeader>
               <TableRow>
@@ -125,13 +125,13 @@ export function TestimonialsClient({
             <TableBody>
               {testimonials.map((t) => (
                 <TableRow key={t.id}>
-                  <TableCell className="font-medium">{t.name}</TableCell>
-                  <TableCell className="max-w-md truncate text-ink-500">{t.quote}</TableCell>
+                  <TableCell className="font-medium text-text">{t.name}</TableCell>
+                  <TableCell className="max-w-md truncate text-muted">{t.quote}</TableCell>
                   <TableCell>
                     {t.featured ? <Badge variant="gold">Featured</Badge> : <Badge variant="outline">—</Badge>}
                   </TableCell>
                   <TableCell className="space-x-2 text-right">
-                    <button type="button" onClick={() => setEditing(t)} className="text-sm text-rose-500">Edit</button>
+                    <button type="button" onClick={() => setEditing(t)} className="text-sm text-rose hover:text-rose-dark">Edit</button>
                     <form action={deleteTestimonial.bind(null, t.id)} className="inline">
                       <button type="submit" className="text-sm text-state-error">Delete</button>
                     </form>

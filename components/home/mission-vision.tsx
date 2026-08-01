@@ -39,29 +39,31 @@ export function MissionVision(props: MissionVisionProps) {
 
         <div className="space-y-6">
           <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-[28px] bg-plum p-6 sm:p-8">
+            <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-plum via-plum-deep to-deep p-6 sm:p-8 card-premium-dark">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-30 mix-blend-overlay"></div>
               <div
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-rose/20 blur-2xl"
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-rose/30 blur-2xl animate-pulse"
                 aria-hidden
               />
               <div
-                className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gold/20 blur-2xl"
+                className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gold/30 blur-2xl animate-pulse delay-700"
                 aria-hidden
               />
-              <p className="eyebrow-dark relative">Our Mission</p>
-              <p className="relative mt-3 font-display text-[1.6rem] font-bold italic leading-snug text-white">
+              <p className="eyebrow-dark relative z-10">Our Mission</p>
+              <p className="relative z-10 mt-3 font-display text-[1.6rem] font-bold italic leading-snug text-white">
                 {missionTitle}
               </p>
-              <p className="relative mt-4 text-white/75 leading-relaxed">{missionText}</p>
+              <p className="relative z-10 mt-4 text-white/75 leading-relaxed">{missionText}</p>
             </div>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="border-l-4 border-rose pl-6">
-              <p className="font-display text-lg font-bold italic leading-relaxed text-plum sm:text-xl">
+            <div className="relative overflow-hidden rounded-[28px] bg-white p-6 sm:p-8 card-premium border-l-4 border-l-rose">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-pale/30 to-transparent pointer-events-none" />
+              <p className="relative z-10 font-display text-lg font-bold italic leading-relaxed text-plum sm:text-xl">
                 &ldquo;{visionText}&rdquo;
               </p>
-              <p className="eyebrow mt-6">Our Vision</p>
+              <p className="eyebrow relative z-10 mt-6">Our Vision</p>
             </div>
           </Reveal>
         </div>

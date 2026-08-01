@@ -1,4 +1,5 @@
 import { Reveal, CountUp } from "@/components/motion";
+import { Users, BookOpen, Heart, Globe2 } from "lucide-react";
 
 export type ImpactStatsProps = {
   girlsReached?: number;
@@ -8,10 +9,10 @@ export type ImpactStatsProps = {
 };
 
 const STATS = [
-  { key: "girlsReached" as const, label: "Girls Reached", suffix: "+" },
-  { key: "workshops" as const, label: "Workshops Held", suffix: "+" },
-  { key: "mentors" as const, label: "Active Mentors", suffix: "+" },
-  { key: "communities" as const, label: "Communities Served", suffix: "+" },
+  { key: "girlsReached" as const, label: "Girls Reached", suffix: "+", icon: Users },
+  { key: "workshops" as const, label: "Workshops Held", suffix: "+", icon: BookOpen },
+  { key: "mentors" as const, label: "Active Mentors", suffix: "+", icon: Heart },
+  { key: "communities" as const, label: "Communities Served", suffix: "+", icon: Globe2 },
 ];
 
 export function ImpactStats({
@@ -35,16 +36,23 @@ export function ImpactStats({
         </Reveal>
 
         <div className="mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {STATS.map((stat, i) => (
-            <Reveal key={stat.key} delay={i * 0.08} className="text-center">
-              <div className="font-display text-4xl font-bold text-gold-light sm:text-5xl">
-                <CountUp value={values[stat.key]} suffix={stat.suffix} />
-              </div>
-              <p className="mt-2 text-sm font-medium text-muted sm:text-base">
-                {stat.label}
-              </p>
-            </Reveal>
-          ))}
+          {STATS.map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <Reveal key={stat.key} delay={i * 0.08} className="text-center group">
+                <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-pale to-cream shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:shadow-rose-glow">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose/20 to-gold/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <Icon className="relative z-10 h-8 w-8 text-rose" strokeWidth={1.5} />
+                </div>
+                <div className="font-display text-4xl font-bold text-gold-deep transition-colors duration-300 group-hover:text-rose sm:text-5xl">
+                  <CountUp value={values[stat.key]} suffix={stat.suffix} />
+                </div>
+                <p className="mt-2 text-sm font-medium text-muted sm:text-base">
+                  {stat.label}
+                </p>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

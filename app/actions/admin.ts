@@ -466,6 +466,13 @@ export async function deleteMediaAsset(id: string): Promise<void> {
   return;
 }
 
+export async function getMediaAssets() {
+  await requireSession();
+  return prisma.mediaAsset.findMany({
+    orderBy: { uploadedAt: "desc" },
+  });
+}
+
 // ─── Volunteers & Partners ──────────────────────────────────────────────────
 
 export async function updateVolunteerStatus(
@@ -561,6 +568,26 @@ export async function createOfflineDonation(formData: FormData): Promise<void> {
   revalidatePath("/admin/donations");
   return;
 }
+
+export async function updateDonationAttributionNote(
+  id: string,
+  attributionNote: string
+): Promise<void> {
+  const session = await requireSession();
+  await prisma.donation.update({
+    where: { id },
+    data: { attributionNote },
+  });
+  await logActivity({
+    userId: session.user.id,
+    action: "UPDATE_ATTRIBUTION",
+    entityType: "Donation",
+    entityId: id,
+  });
+  revalidatePath("/admin/donations");
+  return;
+}
+
 
 // ─── Users (SUPER_ADMIN) ────────────────────────────────────────────────────
 

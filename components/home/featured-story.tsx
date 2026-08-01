@@ -46,16 +46,17 @@ export function FeaturedStory({ story }: FeaturedStoryProps) {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12">
-          <article className="grid overflow-hidden rounded-2xl bg-white shadow-brand min-[900px]:grid-cols-2">
-            <div className="relative aspect-[4/5] min-[900px]:aspect-auto min-[900px]:min-h-[380px]">
+          <article className="group grid overflow-hidden rounded-3xl bg-white shadow-brand transition-all duration-500 hover:shadow-2xl hover:shadow-rose/20 min-[900px]:grid-cols-2 card-premium">
+            <div className="relative aspect-[4/5] overflow-hidden min-[900px]:aspect-auto min-[900px]:min-h-[380px]">
               <Image
                 src={imageSrc}
                 alt={`${name} — featured story`}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 900px) 100vw, 50vw"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-plum/60 via-plum/10 to-transparent mix-blend-multiply transition-opacity duration-300 group-hover:opacity-80" />
             </div>
 
             <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">

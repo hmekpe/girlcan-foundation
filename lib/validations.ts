@@ -32,13 +32,12 @@ export const eventRegistrationSchema = z.object({
   phone: z.string().optional(),
 });
 
-export const donationSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
+export const offlineDonationSchema = z.object({
+  donorName: z.string().min(2),
+  donorEmail: z.string().email(),
   amount: z.number().positive("Enter a valid amount"),
   currency: z.enum(["GHS", "USD"]),
   frequency: z.enum(["ONE_TIME", "MONTHLY"]),
-  provider: z.enum(["PAYSTACK", "STRIPE"]),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
@@ -46,4 +45,4 @@ export type VolunteerInput = z.infer<typeof volunteerSchema>;
 export type PartnerInput = z.infer<typeof partnerSchema>;
 export type NewsletterInput = z.infer<typeof newsletterSchema>;
 export type EventRegistrationInput = z.infer<typeof eventRegistrationSchema>;
-export type DonationInput = z.infer<typeof donationSchema>;
+export type OfflineDonationInput = z.infer<typeof offlineDonationSchema>;

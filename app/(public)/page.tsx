@@ -90,6 +90,7 @@ export default async function HomePage() {
                 "stats_mentors",
                 "stats_communities",
                 "workshop_funding_goal",
+                "image_hero",
               ],
             },
           },
@@ -159,7 +160,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
+      <Hero imageHero={settings.image_hero} />
       <FeaturedStory story={featuredStory} />
       <ImpactStats {...stats} />
       <ManifestoTicker />

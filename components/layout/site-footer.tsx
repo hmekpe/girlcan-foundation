@@ -37,8 +37,14 @@ function XIcon({ className }: { className?: string }) {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-deep text-white/75">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer className="relative bg-deep text-white/75">
+      {/* Top Gradient Border */}
+      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-rose via-gold to-rose" />
+      
+      {/* Subtle Pattern Overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+')] opacity-20 mix-blend-overlay"></div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 max-[600px]:grid-cols-1 min-[600px]:max-[900px]:grid-cols-2 min-[900px]:grid-cols-4">
           <div className="min-[900px]:col-span-2">
             <Link href="/" className="font-display text-xl font-extrabold">
@@ -57,7 +63,7 @@ export function SiteFooter() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/80 transition-colors hover:bg-rose hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/80 transition-all duration-300 hover:bg-rose hover:text-white hover:shadow-[0_0_15px_rgba(232,69,90,0.5)] hover:-translate-y-1"
                 >
                   <Icon className="h-4 w-4" />
                 </a>

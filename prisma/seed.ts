@@ -5,24 +5,24 @@ const prisma = new PrismaClient();
 
 /** PLACEHOLDER_IMAGE URLs — swap before launch */
 const IMG = {
-  hero: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&h=1200&fit=crop",
-  classroom: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop",
-  mentorship: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
-  workshop: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&h=600&fit=crop",
-  confidence: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop",
-  community: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop",
-  story: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1200&h=630&fit=crop",
-  story2: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=630&fit=crop",
-  event: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&h=800&fit=crop",
-  team1: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=500&fit=crop",
-  team2: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=500&fit=crop",
-  team3: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&h=500&fit=crop",
-  gallery1: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&h=700&fit=crop",
-  gallery2: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&h=900&fit=crop",
-  gallery3: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&h=600&fit=crop",
-  gallery4: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=800&fit=crop",
-  gallery5: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1000&h=700&fit=crop",
-  gallery6: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=1000&fit=crop",
+  hero: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&h=1200&fit=crop",
+  classroom: "https://images.unsplash.com/photo-1613490900233-141c5560d75e?w=800&h=600&fit=crop",
+  mentorship: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=600&fit=crop",
+  workshop: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=600&fit=crop",
+  confidence: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&h=600&fit=crop",
+  community: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop",
+  story: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&h=630&fit=crop",
+  story2: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1200&h=630&fit=crop",
+  event: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200&h=800&fit=crop",
+  team1: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&h=500&fit=crop&crop=faces",
+  team2: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=500&fit=crop&crop=faces",
+  team3: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop&crop=faces",
+  gallery1: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&h=700&fit=crop",
+  gallery2: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=700&h=900&fit=crop",
+  gallery3: "https://images.unsplash.com/photo-1613490900233-141c5560d75e?w=900&h=600&fit=crop",
+  gallery4: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=800&fit=crop",
+  gallery5: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1000&h=700&fit=crop",
+  gallery6: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1000&fit=crop",
 };
 
 async function main() {
@@ -88,7 +88,11 @@ async function main() {
       "To inspire, educate, mentor, and support girls through programs and opportunities that promote leadership, personal development, education, confidence-building, and social impact.",
     vision_text:
       "To raise a generation of empowered, resilient, and purpose-driven girls equipped to break barriers and become leaders, changemakers, and role models.",
+    contact_phone: "",
     contact_email: "hello@girlcanfoundation.org",
+    image_hero: "",
+    image_about: "",
+    image_community: "",
     social_instagram: "https://instagram.com",
     social_facebook: "https://facebook.com",
     social_twitter: "https://x.com",
@@ -244,10 +248,10 @@ async function main() {
     data: [
       {
         slug: "ama-found-her-voice",
-        title: "Ama Found Her Voice",
+        title: "Ama Found Her Voice in Accra",
         excerpt:
-          "From quiet classrooms to leading her school debate club — how mentorship helped Ama believe she belongs at the front of the room.",
-        contentRich: `<p>When Ama first joined our Mentorship Programme, she barely spoke above a whisper. Today she leads her school's debate club and mentors younger girls in her community.</p><p>She is strong. She is capable. She can.</p>`,
+          "From quiet classrooms in Nima to leading her school debate club — how mentorship helped Ama believe she belongs at the front of the room.",
+        contentRich: `<p>When Ama first joined our Mentorship Programme in Accra, she barely spoke above a whisper. Today she leads her school's debate club and mentors younger girls in her community in Nima.</p><p>She is strong. She is capable. She can.</p>`,
         coverImage: IMG.story,
         category: "Impact Stories",
         authorId: admin.id,
@@ -257,10 +261,10 @@ async function main() {
       },
       {
         slug: "leadership-weekend-recap",
-        title: "What Happened at Leadership Weekend",
+        title: "What Happened at the Kumasi Leadership Weekend",
         excerpt:
-          "Forty girls. Three days. One shared belief: every girl can lead boldly.",
-        contentRich: `<p>Our Leadership Weekend brought together forty girls for workshops on public speaking, decision-making, and sisterhood. The energy in the room reminded us why we do this work.</p>`,
+          "Forty girls from the Ashanti Region. Three days. One shared belief: every girl can lead boldly.",
+        contentRich: `<p>Our Leadership Weekend brought together forty girls from across Kumasi for workshops on public speaking, decision-making, and sisterhood. The energy in the room reminded us why we do this work.</p>`,
         coverImage: IMG.story2,
         category: "Programs",
         authorId: admin.id,
@@ -270,10 +274,10 @@ async function main() {
       },
       {
         slug: "why-safe-spaces-matter",
-        title: "Why Safe Spaces Matter",
+        title: "Why Safe Spaces Matter in Ghana",
         excerpt:
-          "Creating rooms where girls can express themselves freely is not soft work — it is foundation work.",
-        contentRich: `<p>At The Girl Can Foundation, we believe safe spaces are where confidence takes root. When girls feel seen and heard, they begin to dream bigger than their circumstances.</p>`,
+          "Creating rooms where Ghanaian girls can express themselves freely is not soft work — it is foundation work.",
+        contentRich: `<p>At The Girl Can Foundation, we believe safe spaces are where confidence takes root. When girls from across Ghana feel seen and heard, they begin to dream bigger than their circumstances.</p>`,
         coverImage: IMG.confidence,
         category: "Advocacy",
         authorId: admin.id,
@@ -287,15 +291,15 @@ async function main() {
   await prisma.teamMember.createMany({
     data: [
       {
-        name: "Founder & Executive Director",
+        name: "Akosua Mensah",
         role: "Founder & Executive Director",
-        bio: "Driven by a deep belief that every girl deserves the chance to lead boldly, our founder established The Girl Can Foundation to create pathways of education, mentorship, and advocacy.",
+        bio: "Driven by a deep belief that every girl deserves the chance to lead boldly, our founder established The Girl Can Foundation to create pathways of education, mentorship, and advocacy in Ghana.",
         photo: IMG.team1,
         order: 1,
         socialLinks: { linkedin: "#", twitter: "#" },
       },
       {
-        name: "Programmes Lead",
+        name: "Efua Boateng",
         role: "Programmes Lead",
         bio: "Designs and delivers workshops and mentorship experiences that meet girls where they are and take them further than they imagined.",
         photo: IMG.team2,
@@ -303,25 +307,15 @@ async function main() {
         socialLinks: { linkedin: "#" },
       },
       {
-        name: "Community & Advocacy Lead",
+        name: "Abena Owusu",
         role: "Community & Advocacy Lead",
-        bio: "Builds partnerships and campaigns that amplify girls' voices and drive lasting community change.",
+        bio: "Builds partnerships and campaigns that amplify girls' voices and drive lasting community change across the country.",
         photo: IMG.team3,
         order: 3,
         socialLinks: { linkedin: "#" },
       },
     ],
   });
-
-  // Fix team names to be realistic
-  const members = await prisma.teamMember.findMany({ orderBy: { order: "asc" } });
-  const names = ["Akosua Mensah", "Efua Boateng", "Abena Owusu"];
-  for (let i = 0; i < members.length; i++) {
-    await prisma.teamMember.update({
-      where: { id: members[i].id },
-      data: { name: names[i] },
-    });
-  }
 
   await prisma.testimonial.createMany({
     data: [
@@ -444,14 +438,13 @@ async function main() {
   await prisma.donation.createMany({
     data: [
       {
-        donorName: "Anonymous",
-        donorEmail: "donor1@example.com",
+        donorName: "Kwame Boateng",
+        donorEmail: "kwame@example.com",
         amount: 100,
         currency: "GHS",
         frequency: DonationFrequency.ONE_TIME,
-        provider: DonationProvider.PAYSTACK,
-        providerRef: "seed_psk_1",
-        status: DonationStatus.PAID,
+        provider: DonationProvider.OFFLINE,
+        status: DonationStatus.OFFLINE,
         createdAt: new Date(now.getFullYear(), now.getMonth(), 2),
       },
       {
@@ -460,9 +453,8 @@ async function main() {
         amount: 50,
         currency: "USD",
         frequency: DonationFrequency.MONTHLY,
-        provider: DonationProvider.STRIPE,
-        providerRef: "seed_str_1",
-        status: DonationStatus.PAID,
+        provider: DonationProvider.OFFLINE,
+        status: DonationStatus.OFFLINE,
         createdAt: new Date(now.getFullYear(), now.getMonth(), 8),
       },
       {

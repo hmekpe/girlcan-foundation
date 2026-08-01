@@ -99,12 +99,14 @@ export function Pillars({ pillars = DEFAULT_PILLARS }: PillarsProps) {
             const Icon = ICON_MAP[pillar.icon ?? ""] ?? GraduationCap;
             return (
               <Reveal key={pillar.slug} delay={i * 0.05}>
-                <article className="group h-full rounded-2xl border border-white/10 bg-white/[0.06] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-rose/50 hover:bg-rose/10 sm:p-8">
-                  <IconBadge icon={Icon} tone="rose" size="sm" />
-                  <h3 className="mt-4 font-display text-xl font-bold text-white">
+                <article className="group h-full rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-2 hover:border-rose/50 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:shadow-[0_8px_30px_rgba(232,69,90,0.15)] sm:p-8">
+                  <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-rose transition-all duration-300 group-hover:scale-110 group-hover:bg-rose group-hover:text-white">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-5 font-display text-xl font-bold text-white transition-colors group-hover:text-rose-pale">
                     {pillar.title}
                   </h3>
-                  <p className="mt-3 text-sm text-white/70 leading-relaxed sm:text-base">
+                  <p className="mt-3 text-sm text-white/70 leading-relaxed sm:text-base group-hover:text-white/90">
                     {pillar.summary}
                   </p>
                 </article>

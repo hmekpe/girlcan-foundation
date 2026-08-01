@@ -46,28 +46,25 @@ export const FOOTER_LINKS = {
 
 /** PLACEHOLDER_IMAGE — Unsplash seed photography for launch swap */
 export const PLACEHOLDER = {
-  hero: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&h=1200&fit=crop",
-  classroom:
-    "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=800&fit=crop",
-  mentorship:
-    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=800&fit=crop",
-  workshop:
-    "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200&h=800&fit=crop",
-  confidence:
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=800&fit=crop",
-  community:
-    "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&h=800&fit=crop",
-  team1:
-    "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=500&fit=crop",
-  team2:
-    "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=500&fit=crop",
-  team3:
-    "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&h=500&fit=crop",
-  story:
-    "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1200&h=630&fit=crop",
-  event:
-    "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&h=800&fit=crop",
-  og: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&h=630&fit=crop",
+  hero: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&h=1200&fit=crop",
+  classroom: "https://images.unsplash.com/photo-1613490900233-141c5560d75e?w=800&h=600&fit=crop",
+  mentorship: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=600&fit=crop",
+  workshop: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&h=600&fit=crop",
+  confidence: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&h=600&fit=crop",
+  community: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop",
+  story: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&h=630&fit=crop",
+  story2: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1200&h=630&fit=crop",
+  event: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200&h=800&fit=crop",
+  team1: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&h=500&fit=crop&crop=faces",
+  team2: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=500&fit=crop&crop=faces",
+  team3: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop&crop=faces",
+  gallery1: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&h=700&fit=crop",
+  gallery2: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=700&h=900&fit=crop",
+  gallery3: "https://images.unsplash.com/photo-1613490900233-141c5560d75e?w=900&h=600&fit=crop",
+  gallery4: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=800&fit=crop",
+  gallery5: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1000&h=700&fit=crop",
+  gallery6: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1000&fit=crop",
+  og: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200&h=630&fit=crop",
 };
 
 export const MANIFESTO_ITEMS = [

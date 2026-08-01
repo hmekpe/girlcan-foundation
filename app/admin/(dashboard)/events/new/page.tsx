@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MediaPicker } from "@/components/admin/media-picker";
 
 export default function NewEventPage() {
   return (
@@ -52,8 +53,7 @@ export default function NewEventPage() {
                 <Input id="capacity" name="capacity" type="number" min={1} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="coverImage">Cover image URL</Label>
-                <Input id="coverImage" name="coverImage" type="url" />
+                <MediaPicker name="coverImage" label="Cover image URL" />
               </div>
             </div>
             <div className="flex gap-4">
